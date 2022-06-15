@@ -42,7 +42,7 @@
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-auto">
                             <div class="h5 mb-0 font-weight-bold text-gray-800">
-                                Rekap Laporan Kinerja</div> <br>
+                                Kelola Laporan Kinerja</div> <br>
                             <a href="<?= base_url("admin/Laporan_admin/index") ?>" class="btn btn-primary btn-sm">disini</a>
                         </div>
                         <div class="col-auto">

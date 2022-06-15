@@ -36,10 +36,10 @@
                         <label class="mr-sm-2" for="inlineFormCustomSelect">Keterangan</label>
                         <?php date_default_timezone_set('Asia/Jakarta');
                         $sekarang = strtotime(date('H:i:s'));
-                        $hadir = strtotime('06:00:00');
-                        $telat = strtotime('8:15:00');
+                        $hadir = strtotime('07:30:00');
+                        $telat = strtotime('8:30:00');
                         $pulang = strtotime('16:00:00');
-                        if ($sekarang >= $hadir && $sekarang < strtotime('08:00:00')) {
+                        if ($sekarang >= $hadir && $sekarang < strtotime('08:30:00')) {
                             $t = ' <input type="text" class="form-control" id="inputPassword4" name="keterangan" value="Hadir" readonly>';
                         } elseif ($sekarang >= $telat && $sekarang < strtotime('16:00:00')) {
                             $t = ' <input type="text" class="form-control" id="inputPassword4" name="keterangan" value="Telat" readonly>';

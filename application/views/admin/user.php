@@ -4,7 +4,7 @@
         <?= $this->session->flashdata('message'); ?>
     </div>
     <div class="col-md-11">
-        <a href="#" class="btn btn-primary float-right" data-toggle="modal" data-target="#exampleModal">
+        <a  class="btn btn-primary float-right" data-toggle="modal" data-target="#exampleModal">
             <i class="fas fa-user-plus"></i>
             Tambah User
             </i>
@@ -22,36 +22,38 @@
             </div>
         </div>
         <div class="card-body">
-            <table class="table table-bordered">
-                <thead class="table-primary">
-                    <tr>
-                        <th scope="row justify-content-center">No</th>
-                        <th scope="row justify-content-center">NIO</th>
-                        <th scope="row justify-content-center">Profile</th>
-                        <th scope="row justify-content-center">Nama</th>
-                        <th scope="row justify-content-cer">Bidang Keasistenan</th>
-                        <th scope="row justify-content-cer">Action</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php $no = 1;
-                    foreach ($asisten as $item) : ?>
+            <div style="overflow-x:auto;">
+                <table class="table table-bordered">
+                    <thead class="table-primary">
                         <tr>
-                            <th scope="row"><?= $no++ ?></th>
-                            <td><?= $item['nip']; ?></td>
-                            <td>
-                                <img width="50" src="<?= base_url() ?>assets/profile/<?= $item['foto']; ?>" alt="">
-                            </td>
-                            <td><?= $item['name']; ?></td>
-                            <td><?= $item['bidang']; ?> </td>
-                            <td>
-                                <a href="<?= base_url('admin/Home_admin/delete/' . $item['nip']) ?>" class="btn btn-danger btn-circle"><i class="fas fa-trash"></i></a>
-                            </td>
+                            <th scope="row justify-content-center">No</th>
+                            <th scope="row justify-content-center">NIO</th>
+                            <th scope="row justify-content-center">Profile</th>
+                            <th scope="row justify-content-center">Nama</th>
+                            <th scope="row justify-content-cer">Bidang Keasistenan</th>
+                            <th scope="row justify-content-cer">Action</th>
                         </tr>
-                    <?php endforeach; ?>
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        <?php $no = 1;
+                        foreach ($asisten as $item) : ?>
+                            <tr>
+                                <th scope="row"><?= $no++ ?></th>
+                                <td><?= $item['nip']; ?></td>
+                                <td>
+                                    <img width="50" src="<?= base_url() ?>assets/profile/<?= $item['foto']; ?>" alt="">
+                                </td>
+                                <td><?= $item['name']; ?></td>
+                                <td><?= $item['bidang']; ?> </td>
+                                <td>
+                                    <a href="<?= base_url('admin/Home_admin/delete/' . $item['nip']) ?>" class="btn btn-danger btn-circle"><i class="fas fa-trash"></i></a>
+                                </td>
+                            </tr>
+                        <?php endforeach; ?>
+                    </tbody>
+                </table>
 
+            </div>
         </div>
     </div>
 </div>

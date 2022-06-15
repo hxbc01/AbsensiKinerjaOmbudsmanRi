@@ -1,6 +1,6 @@
 <div class="row justify-content-center ml-4 mt-4">
     <div class="row-md-8">
-        <h3>Laporan Kehadiran Keasistenan</h3>
+        <h3>Rekap Kehadiran Keasistenan</h3>
         <?= $this->session->flashdata('message'); ?>
     </div>
 
@@ -41,36 +41,38 @@
             </div>
         </div>
         <div class="card-body">
-            <table class="table table-bordered">
-                <thead class="table-primary">
-                    <tr>
-                        <th scope="row justify-content-center">No</th>
-                        <th scope="row justify-content-center">Nio</th>
-                        <th scope="row justify-content-center">IMG</th>
-                        <th scope="row justify-content-center">Nama</th>
-                        <th scope="row justify-content-cer">Waktu</th>
-                        <th scope="row justify-content-center">Keterangan</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php date_default_timezone_set('Asia/Jakarta'); ?>
-                    <?php $no = 1; ?>
-                    <?php foreach ($presensi as $item) : ?>
+            <div style="overflow-x:auto;">
+                <table class="table table-bordered">
+                    <thead class="table-primary">
                         <tr>
-                            <th scope="row"><?= $no++; ?></th>
-                            <td><?= $item['nip']; ?></td>
-                            <td>
-                                <img width="50" src="<?= base_url() ?>assets/foto/<?= $item['file']; ?>" alt="">
-                            </td>
-
-                            <td><?= $item['nama']; ?></td>
-                            <td><?= date('d-M-Y H:i:s', $item['waktu']) ?></td>
-                            <td><?= $item['keterangan']; ?> </td>
+                            <th scope="row justify-content-center">No</th>
+                            <th scope="row justify-content-center">Nio</th>
+                            <th scope="row justify-content-center">IMG</th>
+                            <th scope="row justify-content-center">Nama</th>
+                            <th scope="row justify-content-cer">Waktu</th>
+                            <th scope="row justify-content-center">Keterangan</th>
                         </tr>
-                    <?php endforeach; ?>
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        <?php date_default_timezone_set('Asia/Jakarta'); ?>
+                        <?php $no = 1; ?>
+                        <?php foreach ($presensi as $item) : ?>
+                            <tr>
+                                <th scope="row"><?= $no++; ?></th>
+                                <td><?= $item['nip']; ?></td>
+                                <td>
+                                    <img width="50" src="<?= base_url() ?>assets/foto/<?= $item['file']; ?>" alt="">
+                                </td>
 
+                                <td><?= $item['nama']; ?></td>
+                                <td><?= date('d-M-Y H:i:s', $item['waktu']) ?></td>
+                                <td><?= $item['keterangan']; ?> </td>
+                            </tr>
+                        <?php endforeach; ?>
+                    </tbody>
+                </table>
+
+            </div>
         </div>
     </div>
 </div>

@@ -1,6 +1,6 @@
 <div class="row justify-content-center ml-4 mt-4">
     <div class="row-md-8">
-        <h3>Laporan Kehadiran Keasistenan</h3>
+        <h3>Rekap Perizinan Keasistenan</h3>
         <?= $this->session->flashdata('message'); ?>
     </div>
     <div class="col-md-11 mt-4 mr-4">
@@ -26,33 +26,35 @@
             </div>
         </div>
         <div class="card-body">
-            <table class="table table-bordered">
-                <thead class="table-primary">
-                    <tr>
-                        <th scope="row justify-content-center">No</th>
-                        <th scope="row justify-content-center">Nio</th>
-                        <th scope="row justify-content-center">Lampiran</th>
-                        <th scope="row justify-content-center">Nama</th>
-                        <th scope="row justify-content-center">Penjelasan</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php $no = 1; ?>
-                    <?php foreach ($izin as $item) : ?>
+            <div style="overflow-x:auto;">
+                <table class="table table-bordered">
+                    <thead class="table-primary">
                         <tr>
-                            <th scope="row"><?= $no++; ?></th>
-                            <td><?= $item['nip']; ?></td>
-                            <td>
-                                <img width="50" src="<?= base_url() ?>assets/foto/<?= $item['file']; ?>" alt="">
-                            </td>
-
-                            <td><?= $item['nama']; ?></td>
-                            <td><?= $item['penjelasan']; ?> </td>
+                            <th scope="row justify-content-center">No</th>
+                            <th scope="row justify-content-center">Nio</th>
+                            <th scope="row justify-content-center">Lampiran</th>
+                            <th scope="row justify-content-center">Nama</th>
+                            <th scope="row justify-content-center">Penjelasan</th>
                         </tr>
-                    <?php endforeach; ?>
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        <?php $no = 1; ?>
+                        <?php foreach ($izin as $item) : ?>
+                            <tr>
+                                <th scope="row"><?= $no++; ?></th>
+                                <td><?= $item['nip']; ?></td>
+                                <td>
+                                    <img width="50" src="<?= base_url() ?>assets/foto/<?= $item['file']; ?>" alt="">
+                                </td>
 
+                                <td><?= $item['nama']; ?></td>
+                                <td><?= $item['penjelasan']; ?> </td>
+                            </tr>
+                        <?php endforeach; ?>
+                    </tbody>
+                </table>
+
+            </div>
         </div>
     </div>
 </div>

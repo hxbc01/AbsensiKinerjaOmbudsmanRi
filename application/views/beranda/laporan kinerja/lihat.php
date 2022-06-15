@@ -21,6 +21,7 @@
     </style>
     <br>
     <h7>Nama :<?= $users['name'] ?></h7> <br>
+    <h7>NIO :<?= $users['nip'] ?></h7> <br>
     <h7>Bidang :<?= $users['bidang'] ?></h7>
     <br>
     <?php date_default_timezone_set('Asia/Jakarta'); ?>

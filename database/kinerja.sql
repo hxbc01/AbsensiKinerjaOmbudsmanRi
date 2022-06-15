@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 08 Okt 2021 pada 09.44
+-- Waktu pembuatan: 10 Mar 2022 pada 16.00
 -- Versi server: 10.4.19-MariaDB
 -- Versi PHP: 7.3.28
 
@@ -72,6 +72,17 @@ CREATE TABLE `laporan_kinerja` (
 -- --------------------------------------------------------
 
 --
+-- Stand-in struktur untuk tampilan `persentase`
+-- (Lihat di bawah untuk tampilan aktual)
+--
+CREATE TABLE `persentase` (
+`keterangan` varchar(12)
+,`jumlah_kehadiran` bigint(21)
+);
+
+-- --------------------------------------------------------
+
+--
 -- Struktur dari tabel `presensi`
 --
 
@@ -83,14 +94,6 @@ CREATE TABLE `presensi` (
   `keterangan` varchar(12) NOT NULL,
   `file` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data untuk tabel `presensi`
---
-
-INSERT INTO `presensi` (`id`, `nama`, `nip`, `waktu`, `keterangan`, `file`) VALUES
-(1, 'Muhammad burhan', '199203092017023001', 1633678207, 'Telat', 'WIN_20210805_07_54_42_Pro.jpg'),
-(2, 'Muhammad burhan', '199203092017023001', 1633678246, 'Telat', 'WhatsApp_Image_2021-10-01_at_09_55_30.jpeg');
 
 -- --------------------------------------------------------
 
@@ -106,15 +109,14 @@ CREATE TABLE `users` (
   `password` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Dumping data untuk tabel `users`
---
+-- --------------------------------------------------------
 
-INSERT INTO `users` (`nip`, `name`, `bidang`, `foto`, `password`) VALUES
-('1907051008', 'Berli Mega Antika', 'Bidan Pencegahan', 'WhatsApp_Image_2021-10-01_at_09_55_30.jpeg', 'cd34f589fb25dd5d09de72df0dd83949'),
-('1907051020', 'Muhammad Arif', 'Bidang Verifikasi Laporan', 'IMG-20190128-WA00161.jpg', '202cb962ac59075b964b07152d234b70'),
-('1907051039', 'Maria Olivia Lestiyaningrum', 'Bidang Verifikasi Laporan', 'via1.jpeg', 'e5aef89fdd6afdd63e0114c852b0f74c'),
-('199203092017023001', 'Muhammad burhan', 'Pencegahan', 'default.png', '202cb962ac59075b964b07152d234b70');
+--
+-- Struktur untuk view `persentase`
+--
+DROP TABLE IF EXISTS `persentase`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `persentase`  AS SELECT `presensi`.`keterangan` AS `keterangan`, count(0) AS `jumlah_kehadiran` FROM `presensi` GROUP BY `presensi`.`keterangan` ;
 
 --
 -- Indexes for dumped tables
@@ -165,7 +167,7 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT untuk tabel `izin`
 --
 ALTER TABLE `izin`
-  MODIFY `id` int(12) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT untuk tabel `laporan_kinerja`
@@ -177,7 +179,7 @@ ALTER TABLE `laporan_kinerja`
 -- AUTO_INCREMENT untuk tabel `presensi`
 --
 ALTER TABLE `presensi`
-  MODIFY `id` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)

@@ -4,7 +4,7 @@
     </div>
 </div>
 <div class="row justify-content-center mt-4">
-    <div class="card shadow mt-4 ">
+    <div class="card shadow" style="width: 65%;">
         <div class="row-ml-4">
             <a href="<?= base_url("user/Profile/index") ?>" class="btn btn-primary btn-circle btn-lg">
                 <i class="fas fa-arrow-circle-left"></i>

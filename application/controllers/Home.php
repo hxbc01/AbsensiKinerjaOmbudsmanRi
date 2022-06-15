@@ -6,7 +6,7 @@ class Home extends CI_Controller
     public function __construct()
     {
         parent::__construct();
-        //load model
+        $this->load->model('kehadiran_model');
 
         if ($this->session->userdata('status') != "users") {
             redirect(base_url("Auth/index"));
@@ -53,6 +53,17 @@ class Home extends CI_Controller
         $this->load->view('template/header.php', $data);
         $this->load->view('template/topbar.php', $data);
         $this->load->view('beranda/absen/izin.php', $data);
+        $this->load->view('template/footer.php');
+    }
+    public function grafik()
+    {
+        $data['judul'] = 'Grafik kehadiran';
+        $data['graph'] = $this->db->get('persentase')->result();
+        $data['users'] = $this->db->get_where('users', ['nip' =>
+        $this->session->userdata('nip')])->row_array();
+        $this->load->view('template/header.php', $data);
+        $this->load->view('template/topbar.php', $data);
+        $this->load->view('beranda/grafik.php', $data);
         $this->load->view('template/footer.php');
     }
 }

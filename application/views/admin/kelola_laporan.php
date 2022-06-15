@@ -21,30 +21,32 @@
             </div>
         </div>
         <div class="card-body">
-            <table class="table table-bordered">
-                <thead class="table-primary">
-                    <tr>
-                        <th scope="row justify-content-center">No</th>
-                        <th scope="row justify-content-center">Nip</th>
-                        <th scope="row justify-content-center">Tanggal</th>
-                        <th scope="row justify-content-center">Laporan Kinerja</th>
-                        <th scope="row justify-content-center">keterangan</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php $no = 1; ?>
-                    <?php foreach ($laporan as $item) : ?>
+            <div style="overflow-x:auto;">
+                <table class="table table-bordered">
+                    <thead class="table-primary">
                         <tr>
-                            <th scope="row"><?= $no++; ?></th>
-                            <td><?= $item['nip']; ?></td>
-                            <td><?= $item['tanggal']; ?></td>
-                            <td><?= $item['content']; ?> </td>
-                            <td><?= $item['keterangan']; ?> </td>
+                            <th scope="row justify-content-center">No</th>
+                            <th scope="row justify-content-center">Nip</th>
+                            <th scope="row justify-content-center">Tanggal</th>
+                            <th scope="row justify-content-center">Laporan Kinerja</th>
+                            <th scope="row justify-content-center">keterangan</th>
                         </tr>
-                    <?php endforeach; ?>
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        <?php $no = 1; ?>
+                        <?php foreach ($laporan as $item) : ?>
+                            <tr>
+                                <th scope="row"><?= $no++; ?></th>
+                                <td><?= $item['nip']; ?></td>
+                                <td><?= $item['tanggal']; ?></td>
+                                <td><?= $item['content']; ?> </td>
+                                <td><?= $item['keterangan']; ?> </td>
+                            </tr>
+                        <?php endforeach; ?>
+                    </tbody>
+                </table>
 
+            </div>
         </div>
     </div>
 </div>
